@@ -1,3 +1,4 @@
+from __future__ import annotations
 import pygame
 
 
@@ -12,10 +13,15 @@ class CircleShape(pygame.sprite.Sprite):
         self.velocity = pygame.Vector2(0, 0)
         self.radius = radius
 
+    def is_colliding(self, circle: CircleShape) -> bool:
+        distance = self.position.distance_to(circle.position)
+        if distance < self.radius:
+            return True
+        return False
 
     def draw(self, screen: pygame.SurfaceType):
         return pygame.draw.polygon(
-            screen, "black", 
+            screen, "black",
             self.triangle(), 2
         )
 
