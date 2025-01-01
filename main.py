@@ -27,7 +27,6 @@ def main():
 
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
 
-    # asteroid = Asteroid(100, 100, 10)
     asteroid_field = AsteroidField()
 
     while True:
@@ -52,7 +51,7 @@ def main():
 
             for shot in shots:
                 if asteroid.is_colliding(shot):
-                    asteroid.kill()
+                    asteroid.split()
 
 
         pygame.display.flip()
